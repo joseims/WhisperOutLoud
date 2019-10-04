@@ -21,7 +21,7 @@ def answer_tweets():
     tweets = api.mentions_timeline(since_id=last_tweet)
     if (len(tweets)):
         last_tweet = tweets[-1].id
-        print last_tweet
+        print( last_tweet)
     for tweet in tweets:
 
         tweet = api.get_status(tweet.id,tweet_mode="extended")
@@ -36,10 +36,10 @@ def answer_tweets():
         if (not verify_tweet(user,hashtags,hashtag)):
             return 0
     
-        print "Helping {}!".format(nome)
+        print ("Helping {}!".format(nome))
         status_text = format_to_status_text(nome,text)
         print("------------------------")
-        print status_text
+        print (status_text)
         print("------------------------")
 
         
