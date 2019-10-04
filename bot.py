@@ -21,7 +21,7 @@ def answer_tweets():
     tweets = api.mentions_timeline(since_id=last_tweet)
     if (len(tweets)):
         last_tweet = tweets[-1].id
-        print last_tweet
+        print(last_tweet)
     for tweet in tweets:
 
         tweet = api.get_status(tweet.id,tweet_mode="extended")
@@ -32,17 +32,17 @@ def answer_tweets():
         text = format_text(tweet.full_text,hashtag)
         nome = user.screen_name
         in_reply_id = tweet.id
-        
+
         if (not verify_tweet(user,hashtags,hashtag)):
             return 0
-    
-        print "Helping {}!".format(nome)
-        status_text = format_to_status_text(nome,text)
+
+        print(f"Helping {{nome}}!")
+        status_text = format_to_status_text(nome, text)
         print("------------------------")
-        print status_text
+        print(status_text)
         print("------------------------")
 
-        
+
         new_tweet = api.update_status(status=status_text,in_reply_to_status_id=in_reply_id,
         auto_populate_reply_metadata=True)
         global last_own_tweet
@@ -57,7 +57,7 @@ def run():
     dt_now = now.strftime("%d/%m/%Y %H:%M:%S")
 
     initial = api.update_status(status="Now running --- " + dt_now)
-    
+
     last_tweet = initial.id
     followers_count = 0
     while (1):
