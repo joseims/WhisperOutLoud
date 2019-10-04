@@ -17,9 +17,6 @@ def verify_tweet(user,hashtags,hashtag):
     if (hashtag not in (map(lambda x: x["text"],hashtags))):
         result =  False
         print 1
-    # if (not user.protected):
-    #     result =  False
-    #     print 2
     if (result) :
         print "deu bom"
     else:

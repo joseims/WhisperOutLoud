@@ -1,19 +1,20 @@
 #coding: utf-8
 
-import tweepy, time
+import tweepy, time, datetime
 
-from credenciais import *
+from credentials import *
 from utils import *
 
-hashtag = u"whisperall"
+#CONSTANTS
+SLEEP_TIME = ((15*60)/75) + 1
+hashtag = u"whisperoutloud"
 last_tweet = None
 last_own_tweet = None
+
+
 def get_last_tweet_id():
      pass
 
-auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
-api = tweepy.API(auth)
 
 def answer_tweets():
     global last_tweet
@@ -24,19 +25,23 @@ def answer_tweets():
     for tweet in tweets:
 
         tweet = api.get_status(tweet.id,tweet_mode="extended")
+# Credentials for your Twitter bot account
 
         user = tweet.user
         hashtags = tweet.entities["hashtags"]
         text = format_text(tweet.full_text,hashtag)
         nome = user.screen_name
-        in_reply_id = tweet.in_reply_to_status_id
+        in_reply_id = tweet.id
         
         if (not verify_tweet(user,hashtags,hashtag)):
             return 0
     
         print "Helping {}!".format(nome)
         status_text = format_to_status_text(nome,text)
+        print("------------------------")
         print status_text
+        print("------------------------")
+
         
         new_tweet = api.update_status(status=status_text,in_reply_to_status_id=in_reply_id,
         auto_populate_reply_metadata=True)
@@ -46,10 +51,13 @@ def answer_tweets():
 
 
 
-def main():
+def run():
     global last_tweet
-    initial = api.update_status(status="Now running --- version alpha(1.000) ")
-    sleep_time = ((15*60)/75) + 1
+    now = datetime.datetime.now()
+    dt_now = now.strftime("%d/%m/%Y %H:%M:%S")
+
+    initial = api.update_status(status="Now running --- " + dt_now)
+    
     last_tweet = initial.id
     followers_count = 0
     while (1):
@@ -57,4 +65,8 @@ def main():
         answer_tweets()
         time.sleep(sleep_time)
 
-main()
+if (__name__ == "__main__"):
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
+    api = tweepy.API(auth)
+    run()
