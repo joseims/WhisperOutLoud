@@ -16,7 +16,7 @@ The first think you need to do is to get a twitter bot credential aka developer 
 [Look here(https://developer.twitter.com/en/application/use-case)
 After that you need to install the requirements(tweepy)
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 After that you can simply run
