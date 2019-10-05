@@ -65,7 +65,6 @@ class bot(object):
             self.answer_tweets()
             time.sleep(self.SLEEP_TIME)
 
-
 if __name__ == "__main__":
     running_bot = bot()
     running_bot.run()
