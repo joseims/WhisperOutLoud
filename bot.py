@@ -7,7 +7,7 @@ from utils import *
 
 #CONSTANTS
 SLEEP_TIME = ((15*60)/75) + 1
-hashtag = u"whisperoutloud"
+hashtag = "whisperoutloud"
 last_tweet = None
 last_own_tweet = None
 
@@ -36,10 +36,10 @@ def answer_tweets():
         if (not verify_tweet(user,hashtags,hashtag)):
             return 0
     
-        print "Helping {}!".format(nome)
+        print("Helping {}!".format(nome))
         status_text = format_to_status_text(nome,text)
         print("------------------------")
-        print status_text
+        print(status_text)
         print("------------------------")
 
         
