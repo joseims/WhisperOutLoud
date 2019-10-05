@@ -8,8 +8,8 @@ import credentials
 import utils
 
 #CONSTANTS
-SLEEP_TIME = ((15 * 60) / 75) + 1
-hashtag = u"whisperoutloud"
+SLEEP_TIME = ((15*60)/75) + 1
+hashtag = "whisperoutloud"
 last_tweet = None
 last_own_tweet = None
 
@@ -24,6 +24,7 @@ def answer_tweets():
     if len(tweets) > 0:
         last_tweet = tweets[-1].id
         print(last_tweet)
+
 
     for tweet in tweets:
         tweet = api.get_status(tweet.id, tweet_mode="extended")
@@ -40,6 +41,7 @@ def answer_tweets():
 
         print("Helping {}!".format(name))
         status_text = utils.format_to_status_text(name, text)
+        
         print("------------------------")
         print(status_text)
         print("------------------------")
