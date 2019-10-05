@@ -2,7 +2,7 @@
 
 WhisperOutLoud is the twitter's closed account Best Friend! It's a twitter bot that is intended to help the hidden people of twitter(closed account used) contact the outside world (open account user world). The bot works like a proxy. You tag him in the tweet, and then he copy's your tweet in his account, in response to your own tweet.
 
-[This](twitter.com/whisper_outloud), but it's not up all the time (yet).
+[This](twitter.com/whisper_outloud) is the bot's account, but it's not up all the time (yet).
 
 ## How to use it
 Follow the bot, then wait it to follow you back. After that you need to use the tweet's in the following pattern.
