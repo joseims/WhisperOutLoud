@@ -19,7 +19,7 @@ class bot(object):
         self.api = tweepy.API(self.auth)
 
     def get_last_tweet_id(self):
-        pass
+        return self.last_tweet
 
     def answer_tweets(self):
         tweets = self.api.mentions_timeline(since_id=self.last_tweet)
