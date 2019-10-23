@@ -8,7 +8,7 @@ import credentials
 import utils
 
 
-class bot(object):
+class Whisper(object):
     def __init__(self):
         self.SLEEP_TIME = ((15 * 60) / 75) + 1
         self.hashtag = u"whisperoutloud"
@@ -66,5 +66,5 @@ class bot(object):
             time.sleep(self.SLEEP_TIME)
 
 if __name__ == "__main__":
-    running_bot = bot()
+    running_bot = Whisper()
     running_bot.run()
